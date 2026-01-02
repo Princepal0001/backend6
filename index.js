@@ -21,15 +21,16 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: [
+      "https://frontend5-kappa.vercel.app",
       "https://dashboard-swart-alpha-72.vercel.app",
-      "https://frontend-omega-lovat-96.vercel.app",
-      "http://localhost:3000",
-      "http://localhost:3001",
     ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true, // set to false if NOT using cookies
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: false, // IMPORTANT
   })
 );
+
+app.options("*", cors());
 
 /* -------------------- ROUTES -------------------- */
 app.use("/auth", authRoute);
