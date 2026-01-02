@@ -15,7 +15,7 @@ const url = process.env.MONGO_URL;
 
 const app = express();
 app.use(cors({
-   origin: ["https://dashboard-swart-alpha-72.vercel.app", "https://frontend-omega-lovat-96.vercel.app", "http://localhost:3000", "http://localhost:3001" ],
+   origin: ["https://dashboard2-alpha.vercel.app", "https://frontend5-kappa.vercel.app", "http://localhost:3000", "http://localhost:3001" ],
    credentials: true,
  }));
 app.use(bodyParser.json());
