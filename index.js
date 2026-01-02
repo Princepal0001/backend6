@@ -18,19 +18,17 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(
-  cors({
-    origin: [
-      "https://frontend5-kappa.vercel.app",
-      "https://dashboard-swart-alpha-72.vercel.app",
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: false, // IMPORTANT
-  })
-);
+const corsOptions = {
+  origin: [
+    "https://frontend5-kappa.vercel.app",
+    "https://dashboard-swart-alpha-72.vercel.app",
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
 
-app.options("*", cors());
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // 🔥 REQUIRED FOR VERCEL
 
 /* -------------------- ROUTES -------------------- */
 app.use("/auth", authRoute);
