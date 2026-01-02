@@ -45,7 +45,9 @@ app.post("/newOrder", async(req, res) => {
 })
 
 
-
+app.get("/", (req, res) => {
+   res.send("app is running");
+})
 
 
 
